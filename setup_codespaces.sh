@@ -50,7 +50,6 @@ setup_rust() {
 
 
 setup_nerdfonts() {
-    # Use $HOME instead of ~ to prevent literal tilde expansion bugs in strings
     fonts_dir="$HOME/.local/share/fonts"
     fonts=(
         "https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf"
@@ -71,7 +70,6 @@ setup_nerdfonts() {
         echo "Downloading ${font_name} ..."
         font_dest="${fonts_dir}/${font_name}"
         
-        # Fixed: Added $ to font, and wrapped paths in quotes to handle spaces safely
         curl -fLo "$font_dest" "$font"
     done
     
