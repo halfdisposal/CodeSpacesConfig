@@ -80,9 +80,25 @@ setup_nerdfonts() {
     echo "Finished"
 }
 
+setup_extensions() {
+    sudo apt install -y clangd
+    rustup component add rust-analyzer rustfmt
+
+    clangd --version
+    rust-analyzer --version
+
+    echo "Installing VSCode Extensions"
+    code --install-extension Catppuccin.catppuccin-vsc
+    code --install-extension Catppuccin.catppuccin-vsc-icons
+    code --install-extension enkia.tokyo-night
+    code --install-extension rust-lang.rust-analyzer
+}
+
+
 # --- Main Execution ---
 
 setup_cpp
 setup_rust
 setup_nerdfonts
+setup_extensions
 
